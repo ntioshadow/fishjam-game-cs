@@ -15,9 +15,22 @@ public class Player : MonoBehaviour {
 
     private void GameInputs_OnInteractionPressed(object sender, System.EventArgs e)
     {
-        
-    }    
+        Vector2 inputVector = gameInputs.GetMovementVectorNormalized();
 
+        Vector3 movement = new Vector3(inputVector.x, 0, inputVector.y);
+
+        if(movement != Vector3.zero){
+            lastInteractionPosition = movement;
+        }
+
+        float interactDistance = 2f;
+        if(Physics.Raycast(transform.position, lastInteractionPosition, out RaycastHit raycastHit, interactDistance,interactableLayerMask)){
+            if(raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)){
+                clearCounter.Interact();
+            } 
+        }
+    }
+      
     private void Update()
     {
         HandleMovement();
@@ -36,7 +49,7 @@ public class Player : MonoBehaviour {
         float interactDistance = 2f;
         if(Physics.Raycast(transform.position, lastInteractionPosition, out RaycastHit raycastHit, interactDistance,interactableLayerMask)){
             if(raycastHit.transform.TryGetComponent(out ClearCounter clearCounter)){
-                clearCounter.Interact();
+                
             } 
         }
         

@@ -5,7 +5,7 @@ using System;
 
 public class GameInputs : MonoBehaviour
 {
-    public EventHandler OnInteractionPressed;
+    public event EventHandler OnInteractionPressed;
     private PlayerInputActions playerInputActions;
     private void  Awake()
     {
@@ -17,6 +17,7 @@ public class GameInputs : MonoBehaviour
 
     private void Interaction_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
+        Debug.Log("Interaction Pressed");
         OnInteractionPressed?.Invoke(this, EventArgs.Empty);
     }
    public Vector2 GetMovementVectorNormalized()
