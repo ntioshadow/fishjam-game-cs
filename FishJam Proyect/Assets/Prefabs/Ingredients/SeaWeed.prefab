@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5707758345474902525}
-  - component: {fileID: 9212505973778500963}
+  - component: {fileID: 4793865369432259507}
   m_Layer: 0
-  m_Name: Salmon
+  m_Name: SeaWeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 5982163872399692708}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9212505973778500963
+--- !u!114 &4793865369432259507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795b4801a9ccbaf49bcfc2d444602d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kitchenObjectSO: {fileID: 11400000, guid: 7345f491c7240cf44a23054a7cab151d, type: 2}
+  kitchenObjectSO: {fileID: 11400000, guid: f3f1da46e04945f479803345e166b9bc, type: 2}
 --- !u!1 &1512637544820517360
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 7536048250582026097}
   - component: {fileID: 5992081800621146055}
   m_Layer: 0
-  m_Name: SalmonModel
+  m_Name: SeaWeedModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d78d6cd3137a8824699cde034b4270c0, type: 2}
+  - {fileID: 2100000, guid: efe26027cacc84b409062a6cff9b90c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
