@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ClearCounter : MonoBehaviour
 {
+
+   private Transform tomatoPrefab;
    public void Interact(){
     Debug.Log("Clear Counter");
    }
