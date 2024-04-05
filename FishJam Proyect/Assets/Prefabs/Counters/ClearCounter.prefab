@@ -123,6 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665562867158858598}
+  - component: {fileID: 3660937706699218115}
   m_Layer: 6
   m_Name: Active
   m_TagString: Untagged
@@ -146,6 +147,21 @@ Transform:
   - {fileID: 8471212403736023324}
   m_Father: {fileID: 4314463330605212369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3660937706699218115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915183495583816055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42672a13ec101c745944e999398839f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseCounter: {fileID: 2305352203373421097}
+  visualGameObjectArray:
+  - {fileID: 2680996848921722801}
 --- !u!1 &6783574610253681501
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4314463330605212369}
   - component: {fileID: 1774184472905800262}
+  - component: {fileID: 2305352203373421097}
   m_Layer: 6
   m_Name: ClearCounter
   m_TagString: Untagged
@@ -202,6 +219,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &2305352203373421097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6783574610253681501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325808e67cabbcc458ca5299cadff5a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterTopPoint: {fileID: 182480357946399383}
+  kitchenObjectSO: {fileID: 0}
 --- !u!1 &8605858932176238988
 GameObject:
   m_ObjectHideFlags: 0
