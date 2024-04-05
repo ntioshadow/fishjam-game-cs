@@ -123,7 +123,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665562867158858598}
-  - component: {fileID: 1618046314605128138}
   m_Layer: 6
   m_Name: Active
   m_TagString: Untagged
@@ -147,20 +146,6 @@ Transform:
   - {fileID: 8471212403736023324}
   m_Father: {fileID: 4314463330605212369}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1618046314605128138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5915183495583816055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab4e275648c01b46890b4457d949764, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clearCounter: {fileID: 8846782367675542955}
-  visualGameObject: {fileID: 2680996848921722801}
 --- !u!1 &6783574610253681501
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +155,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4314463330605212369}
-  - component: {fileID: 8846782367675542955}
   - component: {fileID: 1774184472905800262}
   m_Layer: 6
   m_Name: ClearCounter
@@ -197,20 +181,6 @@ Transform:
   - {fileID: 182480357946399383}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8846782367675542955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6783574610253681501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddf4dfa4b9c858f4894ef7436788eaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kitchenObjectSO: {fileID: 11400000, guid: 7345f491c7240cf44a23054a7cab151d, type: 2}
-  counterTop: {fileID: 182480357946399383}
 --- !u!65 &1774184472905800262
 BoxCollider:
   m_ObjectHideFlags: 0
