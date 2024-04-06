@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4fb1c3058562424387577d064d45ba4, type: 3}
+  m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
   m_Name: Octopus
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5707758345474902525, guid: 3b9fa1af6c8dd9c46b4fb4244c0b167a, type: 3}
+  prefab: {fileID: 5707758345474902525, guid: 976c96f0543b33c488e50cc4370aa377, type: 3}
   sprite: {fileID: 21300000, guid: a5685d4f72206d8419a68287692a3d90, type: 3}
   objectName: Octopus

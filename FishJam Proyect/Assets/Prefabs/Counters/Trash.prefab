@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42672a13ec101c745944e999398839f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCounter: {fileID: 2305352203373421097}
+  baseCounter: {fileID: 3208972652981422268}
   visualGameObjectArray:
   - {fileID: 2680996848921722801}
 --- !u!1 &6783574610253681501
@@ -172,9 +172,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4314463330605212369}
   - component: {fileID: 1774184472905800262}
-  - component: {fileID: 2305352203373421097}
+  - component: {fileID: 3208972652981422268}
   m_Layer: 6
-  m_Name: ClearCounter
+  m_Name: Trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &2305352203373421097
+--- !u!114 &3208972652981422268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,11 +228,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6783574610253681501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325808e67cabbcc458ca5299cadff5a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 47dd2d62d26fc534397d5ddb80580654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   counterTopPoint: {fileID: 182480357946399383}
-  kitchenObjectSO: {fileID: 0}
 --- !u!1 &8605858932176238988
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +293,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3cf2f11adcc2d244a883f2ec2de11e1e, type: 2}
+  - {fileID: 2100000, guid: 325ef1a3a3e14bc47b2ab28b0a54d613, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

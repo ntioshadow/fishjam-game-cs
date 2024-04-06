@@ -64,32 +64,32 @@ public class StoveCounter : BaseCounter, IHasProgress {
                         });
                     }
                     break;
-                case State.Fried:
-                    burningTimer += Time.deltaTime;
+                // case State.Fried:
+                //     burningTimer += Time.deltaTime;
 
-                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
-                        progressNormalized = burningTimer / burningRecipeSO.burningTimerMax
-                    });
+                //     OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
+                //         progressNormalized = burningTimer / burningRecipeSO.burningTimerMax
+                //     });
 
-                    if (burningTimer > burningRecipeSO.burningTimerMax) {
-                        // Fried
-                        GetKitchenObject().DestroySelf();
+                //     if (burningTimer > burningRecipeSO.burningTimerMax) {
+                //         // Fried
+                //         GetKitchenObject().DestroySelf();
 
-                        KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
+                //         KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
 
-                        state = State.Burned;
+                //         state = State.Burned;
 
-                        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
-                            state = state
-                        });
+                //         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
+                //             state = state
+                //         });
 
-                        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
-                            progressNormalized = 0f
-                        });
-                    }
-                    break;
-                case State.Burned:
-                    break;
+                //         OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
+                //             progressNormalized = 0f
+                //         });
+                //     }
+                //     break;
+                // case State.Burned:
+                //     break;
             }
         }
     }

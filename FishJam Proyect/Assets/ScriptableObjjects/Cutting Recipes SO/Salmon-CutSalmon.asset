@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
-  m_Name: Rice
+  m_Script: {fileID: 11500000, guid: 2c1b9d05eef7cd94a9f0a6c230c7aefb, type: 3}
+  m_Name: Salmon-CutSalmon
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5707758345474902525, guid: 01a8c85bccf30534ea8cddf4e821e5b9, type: 3}
-  sprite: {fileID: 21300000, guid: 6bf5ac83510695f40a00502fa54fec6d, type: 3}
-  objectName: Rice
+  input: {fileID: 0}
+  output: {fileID: 0}
+  cuttingProgressMax: 0
