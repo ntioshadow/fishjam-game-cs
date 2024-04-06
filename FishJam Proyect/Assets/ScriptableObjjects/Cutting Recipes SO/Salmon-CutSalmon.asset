@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1b9d05eef7cd94a9f0a6c230c7aefb, type: 3}
   m_Name: Salmon-CutSalmon
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
-  output: {fileID: 0}
-  cuttingProgressMax: 0
+  input: {fileID: 11400000, guid: 7345f491c7240cf44a23054a7cab151d, type: 2}
+  output: {fileID: 11400000, guid: 7894b3fb9ca6df64f86acecaaacb883c, type: 2}
+  cuttingProgressMax: 5
