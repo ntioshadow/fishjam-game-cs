@@ -16,6 +16,7 @@ public class DeliveryManager : MonoBehaviour {
 
 
     [SerializeField] private RecipeListSO recipeListSO;
+    [SerializeField] private DeliveryCounter[] customers;
 
 
     private List<RecipeSO> waitingRecipeSOList;
@@ -41,6 +42,8 @@ public class DeliveryManager : MonoBehaviour {
                 RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
 
                 waitingRecipeSOList.Add(waitingRecipeSO);
+
+                customers[UnityEngine.Random.Range(0, customers.Length)].AssignRecipe(waitingRecipeSO);
 
                 OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }

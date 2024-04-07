@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class DeliveryCounter : BaseCounter {
 
+    public float deliveryTimeLimit = 30f;
+    private float deliveryTimer;
 
-    public static DeliveryCounter Instance { get; private set; }
+    private RecipeSO currentRecipe;
 
-
-    private void Awake() {
-        Instance = this;
+    private void Start()
+    {
+        ResetTimer();
     }
 
+    private void Update()
+    {
+        if (currentRecipe != null)
+        {
+            deliveryTimer -= Time.deltaTime;
+            if (deliveryTimer <= 0f)
+            {
+                //DeliveryManager.Instance.OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+                ResetTimer();
+            }
+        }
+    }
 
     public override void Interact(Player player) {
         if (player.HasKitchenObject()) {
@@ -23,6 +37,16 @@ public class DeliveryCounter : BaseCounter {
                 player.GetKitchenObject().DestroySelf();
             }
         }
+    }
+    public void AssignRecipe(RecipeSO recipe)
+    {
+        currentRecipe = recipe;
+        deliveryTimer = deliveryTimeLimit; // Reset delivery timer when assigning a new recipe
+    }
+
+    private void ResetTimer()
+    {
+        deliveryTimer = deliveryTimeLimit;
     }
 
 }
