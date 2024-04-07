@@ -23,12 +23,15 @@ public class PlateKitchenObject : KitchenObject {
     }
 
     public bool TryAddIngredient(KitchenObjectSO kitchenObjectSO) {
+        print("TryAdd");
         if (!validKitchenObjectSOList.Contains(kitchenObjectSO)) {
             // Not a valid ingredient
+            print("Not a valid ingredient");
             return false;
         }
         if (kitchenObjectSOList.Contains(kitchenObjectSO)) {
             // Already has this type
+            print("Already has this type");
             return false;
         } else {
             kitchenObjectSOList.Add(kitchenObjectSO);
@@ -36,7 +39,7 @@ public class PlateKitchenObject : KitchenObject {
             OnIngredientAdded?.Invoke(this, new OnIngredientAddedEventArgs {
                 kitchenObjectSO = kitchenObjectSO
             });
-
+            print("Added");
             return true;
         }
     }

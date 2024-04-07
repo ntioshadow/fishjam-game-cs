@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc21a10037aee741b16be775dd5891f, type: 3}
   m_Name: SalmonSushi
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 5707758345474902525, guid: 9dc4435af99c75e499d711fb49340462, type: 3}
   sprite: {fileID: 0}
-  objectName: 
+  objectName: Salmon Sushi
