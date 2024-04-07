@@ -92,7 +92,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 795ec2b6ef935194586b256598eae730, type: 2}
+  - {fileID: 2100000, guid: fe1e6e7f16860f44789ac1c7030c5b49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +172,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4314463330605212369}
   - component: {fileID: 1774184472905800262}
-  - component: {fileID: 2279375813267106033}
+  - component: {fileID: 2305352203373421097}
+  - component: {fileID: 5567334341118594911}
   m_Layer: 6
   m_Name: Customer Table
   m_TagString: Untagged
@@ -232,6 +233,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterTopPoint: {fileID: 182480357946399383}
+  kitchenObjectSO: {fileID: 0}
+--- !u!208 &5567334341118594911
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6783574610253681501}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 0.5, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8605858932176238988
 GameObject:
   m_ObjectHideFlags: 0
