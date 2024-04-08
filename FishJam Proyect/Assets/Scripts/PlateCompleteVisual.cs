@@ -13,10 +13,9 @@ public class PlateCompleteVisual : MonoBehaviour {
         public GameObject gameObject;
 
     }
-
-
     [SerializeField] private PlateKitchenObject plateKitchenObject;
     [SerializeField] private List<KitchenObjectSO_GameObject> kitchenObjectSOGameObjectList;
+    private KitchenObjectSO final;
 
 
     private void Start() {
@@ -28,11 +27,35 @@ public class PlateCompleteVisual : MonoBehaviour {
     }
 
     private void PlateKitchenObject_OnIngredientAdded(object sender, PlateKitchenObject.OnIngredientAddedEventArgs e) {
-        foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList) {
-            if (kitchenObjectSOGameObject.kitchenObjectSO == e.kitchenObjectSO) {
-                kitchenObjectSOGameObject.gameObject.SetActive(true);
+        if (plateKitchenObject.HasCompleted())
+        {
+            final = plateKitchenObject.GetFinalRecipe();
+            print("complete");
+            foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList) {
+            kitchenObjectSOGameObject.gameObject.SetActive(false);
+            }
+            foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList)
+            {
+                if (kitchenObjectSOGameObject.kitchenObjectSO == final)
+                {
+                    kitchenObjectSOGameObject.gameObject.SetActive(true);
+                }
             }
         }
+        else
+        {
+            foreach (KitchenObjectSO_GameObject kitchenObjectSOGameObject in kitchenObjectSOGameObjectList)
+            {
+                if (kitchenObjectSOGameObject.kitchenObjectSO == e.kitchenObjectSO)
+                {
+                    kitchenObjectSOGameObject.gameObject.SetActive(true);
+                }
+            }
+        }
+
+
+
+        
     }
 
 }
