@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CutOctopus
   m_EditorClassIdentifier: 
   prefab: {fileID: 5707758345474902525, guid: 7394b9be1e9a4e24b9bc6f311df4959e, type: 3}
-  sprite: {fileID: 21300000, guid: a5685d4f72206d8419a68287692a3d90, type: 3}
+  sprite: {fileID: 21300000, guid: 4b0a9d5a612a5b9458ae1a2ee3c565bc, type: 3}
   objectName: Cut Octopus
