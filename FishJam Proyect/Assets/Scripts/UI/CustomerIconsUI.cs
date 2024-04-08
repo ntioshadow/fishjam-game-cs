@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,12 @@ public class CustomerIconsUI : MonoBehaviour {
 
     private void Start() {
         deliveryCounter.OnRecipeAdded += deliveryCounter_OnRecipeAdded;
+        deliveryCounter.OnRecipeCompleted+= deliveryCounter_OnRecipeUpdated;
+    }
+
+    private void deliveryCounter_OnRecipeUpdated(object sender, EventArgs e)
+    {
+        UpdateVisual();
     }
 
     private void deliveryCounter_OnRecipeAdded(object sender, DeliveryCounter.OnRecipeAddedEventArgs e) {
