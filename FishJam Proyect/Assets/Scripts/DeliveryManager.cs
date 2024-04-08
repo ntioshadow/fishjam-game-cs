@@ -43,7 +43,7 @@ public class DeliveryManager : MonoBehaviour {
 
                 waitingRecipeSOList.Add(waitingRecipeSO);
 
-                customers[UnityEngine.Random.Range(0, customers.Length)].AssignRecipe(waitingRecipeSO);
+                //customers[UnityEngine.Random.Range(0, customers.Length)].AssignRecipe(waitingRecipeSO);
 
                 OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
             }
