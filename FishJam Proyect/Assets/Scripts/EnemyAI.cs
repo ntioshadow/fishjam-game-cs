@@ -3,17 +3,19 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform player; // Reference to the player object
+    private Transform player; // Reference to the player object
     public NavMeshAgent agent; // Reference to the NavMeshAgent component
     public float chaseRange = 10f; // Distance at which the enemy enters chase mode
     public float patrolRange = 5f; // Distance at which the enemy starts patrolling again
-    public Transform[] patrolPoints; // Array of patrol points
+    private Transform[] patrolPoints; // Array of patrol points
 
     private int currentPatrolPoint = 0; // Index of the current patrol point
     private bool isChasing = false; // Flag to track chase mode
 
     void Start()
     {
+        player = Player.Instance.transform;
+        patrolPoints = PatrolPoints.Instance.getPoints();
         agent = GetComponent<NavMeshAgent>();
         if (patrolPoints.Length == 0)
         {

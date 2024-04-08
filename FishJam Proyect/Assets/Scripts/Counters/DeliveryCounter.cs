@@ -69,7 +69,7 @@ public class DeliveryCounter : BaseCounter {
 
     private void SpawnShark()
     {
-        Vector3 spawnPosition = transform.position + new Vector3(1f, 0f, 0f);
+        Vector3 spawnPosition = transform.position + new Vector3(-2f, 1f, 0f);
         Instantiate(sharkPrefab, spawnPosition, Quaternion.identity);
     }
 
