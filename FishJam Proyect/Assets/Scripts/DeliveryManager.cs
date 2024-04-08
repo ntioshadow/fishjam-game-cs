@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour {
@@ -19,18 +20,15 @@ public class DeliveryManager : MonoBehaviour {
     [SerializeField] private DeliveryCounter[] customers;
 
 
-    private List<RecipeSO> waitingRecipeSOList;
+    private int waitingRecipe;
     private float spawnRecipeTimer;
-    private float spawnRecipeTimerMax = 4f;
-    private int waitingRecipesMax = 4;
+    private float spawnRecipeTimerMax = 12f;
+    private int waitingRecipesMax = 1;
     private int successfulRecipesAmount;
 
 
     private void Awake() {
         Instance = this;
-
-
-        waitingRecipeSOList = new List<RecipeSO>();
     }
 
     private void Update() {
@@ -38,67 +36,43 @@ public class DeliveryManager : MonoBehaviour {
         if (spawnRecipeTimer <= 0f) {
             spawnRecipeTimer = spawnRecipeTimerMax;
 
-            if (KitchenGameManager.Instance.IsGamePlaying() && waitingRecipeSOList.Count < waitingRecipesMax) {
+            if (//KitchenGameManager.Instance.IsGamePlaying() && 
+            waitingRecipe < customers.Length) {
                 RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
-
-                waitingRecipeSOList.Add(waitingRecipeSO);
-
-                customers[UnityEngine.Random.Range(0, customers.Length)].AssignRecipe(waitingRecipeSO);
-
-                OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
+                foreach (var customer in customers) {
+                    if (!customer.HasRecipe()) {
+                        customer.AssignRecipe(waitingRecipeSO);
+                        OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
+                        waitingRecipe += 1;
+                        break;
+                    }
+                }
             }
         }
     }
 
-    public void DeliverRecipe(PlateKitchenObject plateKitchenObject) {
-        for (int i = 0; i < waitingRecipeSOList.Count; i++) {
-            RecipeSO waitingRecipeSO = waitingRecipeSOList[i];
-
-            if (waitingRecipeSO.kitchenObjectSOList.Count == plateKitchenObject.GetKitchenObjectSOList().Count) {
-                // Has the same number of ingredients
-                bool plateContentsMatchesRecipe = true;
-                foreach (KitchenObjectSO recipeKitchenObjectSO in waitingRecipeSO.kitchenObjectSOList) {
-                    // Cycling through all ingredients in the Recipe
-                    bool ingredientFound = false;
-                    foreach (KitchenObjectSO plateKitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList()) {
-                        // Cycling through all ingredients in the Plate
-                        if (plateKitchenObjectSO == recipeKitchenObjectSO) {
-                            // Ingredient matches!
-                            ingredientFound = true;
-                            break;
-                        }
-                    }
-                    if (!ingredientFound) {
-                        // This Recipe ingredient was not found on the Plate
-                        plateContentsMatchesRecipe = false;
-                    }
-                }
-
-                if (plateContentsMatchesRecipe) {
-                    // Player delivered the correct recipe!
-
-                    successfulRecipesAmount++;
-
-                    waitingRecipeSOList.RemoveAt(i);
-
-                    OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
-                    OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
-                    return;
-                }
-            }
-        }
-
-        // No matches found!
-        // Player did not deliver a correct recipe
-        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
-    }
-
-    public List<RecipeSO> GetWaitingRecipeSOList() {
-        return waitingRecipeSOList;
+    public int GetWaitingRecipe() {
+        return waitingRecipe;
     }
 
     public int GetSuccessfulRecipesAmount() {
         return successfulRecipesAmount;
+    }
+
+    public void FailedRecipe(){
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+        waitingRecipe -= 1;
+        print("failed");
+    }
+    public void IncorrectRecipe(){
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+    }
+    public void CorrectRecipe(){
+        print("success");
+        waitingRecipe -= 1;
+        successfulRecipesAmount++;
+        OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+        OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
     }
 
 }
