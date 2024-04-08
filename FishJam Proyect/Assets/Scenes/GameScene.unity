@@ -792,6 +792,8 @@ MonoBehaviour:
   - {fileID: 1957994323}
   - {fileID: 1541579406}
   - {fileID: 988517910}
+  spawnRecipeTimerMax: 20
+  waitingRecipesMax: 5
 --- !u!4 &124450839
 Transform:
   m_ObjectHideFlags: 0
@@ -1775,7 +1777,7 @@ Transform:
   m_GameObject: {fileID: 513672875}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3907311, y: 0, z: 0, w: 0.9205049}
-  m_LocalPosition: {x: 2.205, y: 21.5, z: -17.579}
+  m_LocalPosition: {x: 23.88, y: 23.38, z: -18.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3478,9 +3480,9 @@ MonoBehaviour:
   smoothTime: 0.3
   smoothTimeZoom: 8
   initialPosition: {fileID: 513672876}
-  zoomInFOV: 10
-  zoomOutFOV: 20
-  leftThreshold: 8
+  zoomInFOV: 15
+  zoomOutFOV: 30
+  leftThreshold: 8.5
   cameraControl: {fileID: 963194227}
 --- !u!1001 &976016254
 PrefabInstance:
@@ -4026,6 +4028,7 @@ GameObject:
   - component: {fileID: 1143488182}
   - component: {fileID: 1143488183}
   - component: {fileID: 1143488184}
+  - component: {fileID: 1143488185}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -4080,6 +4083,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a445f5aca17ba347af5d293806b52aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1143488185
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143488180}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.7146006
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8573003, z: 0}
 --- !u!1 &1153105894
 GameObject:
   m_ObjectHideFlags: 0
