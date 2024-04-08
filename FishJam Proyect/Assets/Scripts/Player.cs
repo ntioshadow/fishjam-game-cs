@@ -9,7 +9,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
     public static Player Instance { get; private set; }
 
 
-
+    public event EventHandler OnPlayerEnemyCollision;
     public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs {
@@ -135,6 +135,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent {
 
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {    // Notify the game manager about the collision with an enemy
+            OnPlayerEnemyCollision?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void SetSelectedCounter(BaseCounter selectedCounter) {

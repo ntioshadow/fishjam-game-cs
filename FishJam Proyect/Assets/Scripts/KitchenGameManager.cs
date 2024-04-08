@@ -13,6 +13,7 @@ public class KitchenGameManager : MonoBehaviour {
     public event EventHandler OnStateChanged;
     public event EventHandler OnGamePaused;
     public event EventHandler OnGameUnpaused;
+    public event EventHandler OnLiveLoss;
 
 
     private enum State {
@@ -25,9 +26,11 @@ public class KitchenGameManager : MonoBehaviour {
 
     private State state;
     private float countdownToStartTimer = 3f;
-    private float gamePlayingTimer;
-    private float gamePlayingTimerMax = 30f;
+    private float invulnerabilityTimer;
+    private float invulnerabilityTimerMax = 5f;
     private bool isGamePaused = false;
+    public int lives;
+    public int maxLives;
 
 
     private void Awake() {
@@ -37,8 +40,15 @@ public class KitchenGameManager : MonoBehaviour {
     }
 
     private void Start() {
+        lives = maxLives;
         GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
+        Player.Instance.OnPlayerEnemyCollision += Player_OnEnemyCollided;
+    }
+
+    private void Player_OnEnemyCollided(object sender, EventArgs e)
+    {
+        Hit();
     }
 
     private void GameInput_OnInteractAction(object sender, EventArgs e) {
@@ -60,13 +70,12 @@ public class KitchenGameManager : MonoBehaviour {
                 countdownToStartTimer -= Time.deltaTime;
                 if (countdownToStartTimer < 0f) {
                     state = State.GamePlaying;
-                    gamePlayingTimer = gamePlayingTimerMax;
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
                 break;
             case State.GamePlaying:
-                gamePlayingTimer -= Time.deltaTime;
-                if (gamePlayingTimer < 0f) {
+                invulnerabilityTimer -= Time.deltaTime;
+                if (lives <= 0) {
                     state = State.GameOver;
                     OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
@@ -92,8 +101,21 @@ public class KitchenGameManager : MonoBehaviour {
         return state == State.GameOver;
     }
 
-    public float GetGamePlayingTimerNormalized() {
-        return 1 - (gamePlayingTimer / gamePlayingTimerMax);
+    // public float GetGamePlayingTimerNormalized() {
+    //     //return 1 - (gamePlayingTimer / gamePlayingTimerMax);
+    // }
+    public void SetLives(int newLives){
+        lives = newLives;
+    }
+    public int GetLives(){
+        return lives;
+    }
+    public void Hit(){
+        if(invulnerabilityTimer<=0 && state == State.GamePlaying){
+            lives -= 1;
+            invulnerabilityTimer = invulnerabilityTimerMax;
+            OnLiveLoss?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public void TogglePauseGame() {

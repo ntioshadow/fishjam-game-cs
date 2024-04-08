@@ -22,8 +22,8 @@ public class DeliveryManager : MonoBehaviour {
 
     private int waitingRecipe;
     private float spawnRecipeTimer;
-    private float spawnRecipeTimerMax = 20f;
-    private int waitingRecipesMax = 2;
+    public float spawnRecipeTimerMax = 20f;
+    public int waitingRecipesMax = 5;
     private int successfulRecipesAmount;
     private int failedRecipesAmount;
 
