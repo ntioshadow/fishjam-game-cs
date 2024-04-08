@@ -614,6 +614,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3319787640830320951, guid: 5eefdd8bbffc8dc45812a606039e4743, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ed2cb60a2cf13a468e6d4f4c27d78ac, type: 2}
+    - target: {fileID: -3319787640830320951, guid: 5eefdd8bbffc8dc45812a606039e4743, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 794d3a56867c5644eb4ed10cd5a7ec1a, type: 2}
+    - target: {fileID: -3319787640830320951, guid: 5eefdd8bbffc8dc45812a606039e4743, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1cfe9ed538cc1740923f45492312103, type: 2}
+    - target: {fileID: -2001496963424984923, guid: 5eefdd8bbffc8dc45812a606039e4743, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1cfe9ed538cc1740923f45492312103, type: 2}
     - target: {fileID: 919132149155446097, guid: 5eefdd8bbffc8dc45812a606039e4743, type: 3}
       propertyPath: m_Name
       value: Container_Counter

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CookedRice
   m_EditorClassIdentifier: 
   prefab: {fileID: 5707758345474902525, guid: a765ee2fb7398fe47aa8a6bd008c4058, type: 3}
-  sprite: {fileID: 21300000, guid: 6bf5ac83510695f40a00502fa54fec6d, type: 3}
+  sprite: {fileID: 21300000, guid: 1f0a39ed72e7b434e9fd5c8627e793eb, type: 3}
   objectName: Cooked Rice
