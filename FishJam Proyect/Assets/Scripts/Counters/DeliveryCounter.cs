@@ -4,11 +4,17 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using UnityEngine;
 
-public class DeliveryCounter : BaseCounter {
+public class DeliveryCounter : BaseCounter, IHasProgress {
 
+    public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;   
+    public event EventHandler<OnRecipeAddedEventArgs> OnRecipeAdded;
+    public class OnRecipeAddedEventArgs : EventArgs {
+        public RecipeSO currentRecipe;
+    }
     public float deliveryTimeLimit = 30f;
     private float deliveryTimer;
     [SerializeField] private float eatingTimeMax = 7f;
+    [SerializeField] private GameObject[] characterGameObjectArray;
     public GameObject sharkPrefab;
     private float eatingTime;
     public enum State {
@@ -24,6 +30,10 @@ public class DeliveryCounter : BaseCounter {
     private void Start()
     {
         ResetTimer();
+        foreach (GameObject visualGameObject in characterGameObjectArray) {
+            visualGameObject.SetActive(false);
+            
+        }
         state = State.Idle;
     }
 
@@ -46,22 +56,37 @@ public class DeliveryCounter : BaseCounter {
 
     private void Eat()
     {
-        eatingTime -= Time.deltaTime;
-        if (eatingTime <= 0f)
+        eatingTime += Time.deltaTime;
+        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
+                        progressNormalized = eatingTime / eatingTimeMax
+                    });
+        if (eatingTime >= eatingTimeMax)
             {
+                GetKitchenObject().DestroySelf();
                 currentRecipe = null;
                 state = State.Idle;
+                foreach (GameObject visualGameObject in characterGameObjectArray) {
+            visualGameObject.SetActive(false);
+            
+        }
                 ResetTimer();
             }
     }
 
     private void decreaseTime(){
         deliveryTimer -= Time.deltaTime;
+        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
+                        progressNormalized = deliveryTimer / deliveryTimeLimit
+                    });
             if (deliveryTimer <= 0f)
             {
                 DeliveryManager.Instance.FailedRecipe();
                 currentRecipe = null;
                 state = State.Idle;
+            foreach (GameObject visualGameObject in characterGameObjectArray)
+            {
+                visualGameObject.SetActive(false);
+            }
                 SpawnShark();
                 ResetTimer();
             }
@@ -69,7 +94,7 @@ public class DeliveryCounter : BaseCounter {
 
     private void SpawnShark()
     {
-        Vector3 spawnPosition = transform.position + new Vector3(1f, 0f, 0f);
+        Vector3 spawnPosition = transform.position + new Vector3(0f, 1f, 2f);
         Instantiate(sharkPrefab, spawnPosition, Quaternion.identity);
     }
 
@@ -129,21 +154,31 @@ public class DeliveryCounter : BaseCounter {
     public void AssignRecipe(RecipeSO recipe)
     {
         currentRecipe = recipe;
+        OnRecipeAdded?.Invoke(this, new OnRecipeAddedEventArgs {
+                        currentRecipe = currentRecipe
+                    });
         state = State.Waiting;
+        foreach (GameObject visualGameObject in characterGameObjectArray) {
+            visualGameObject.SetActive(true);
+            
+        }
         ResetTimer();
     }
 
     private void ResetTimer()
     {
         deliveryTimer = deliveryTimeLimit;
+        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs {
+                        progressNormalized = deliveryTimer / deliveryTimeLimit
+                    });
     }
     private void startEating()
     {
-        eatingTime = eatingTimeMax;
+        eatingTime = 0;
         state = State.Eating;
     }
 
-    public bool HasRecipe(){
+    public Boolean HasRecipe(){
         return currentRecipe != null;
     }
     public RecipeSO GetCurrentRecipe(){

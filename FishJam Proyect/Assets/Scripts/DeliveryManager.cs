@@ -22,9 +22,10 @@ public class DeliveryManager : MonoBehaviour {
 
     private int waitingRecipe;
     private float spawnRecipeTimer;
-    private float spawnRecipeTimerMax = 12f;
-    private int waitingRecipesMax = 1;
+    private float spawnRecipeTimerMax = 20f;
+    private int waitingRecipesMax = 2;
     private int successfulRecipesAmount;
+    private int failedRecipesAmount;
 
 
     private void Awake() {
@@ -37,9 +38,10 @@ public class DeliveryManager : MonoBehaviour {
             spawnRecipeTimer = spawnRecipeTimerMax;
 
             if (//KitchenGameManager.Instance.IsGamePlaying() && 
-            waitingRecipe < customers.Length) {
+            waitingRecipe < customers.Length && waitingRecipe < waitingRecipesMax) {
+                DeliveryCounter[] shuffledList = reshuffle(customers);
                 RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
-                foreach (var customer in customers) {
+                foreach (var customer in shuffledList) {
                     if (!customer.HasRecipe()) {
                         customer.AssignRecipe(waitingRecipeSO);
                         OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
@@ -50,6 +52,19 @@ public class DeliveryManager : MonoBehaviour {
                 }
             }
         }
+    }
+
+    DeliveryCounter[] reshuffle(DeliveryCounter[] array)
+    {
+        // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+        for (int t = 0; t < array.Length; t++ )
+        {
+            DeliveryCounter tmp = array[t];
+            int r = UnityEngine.Random.Range(t, array.Length);
+            array[t] = array[r];
+            array[r] = tmp;
+        }
+        return array;
     }
 
     public int GetWaitingRecipe() {
@@ -63,6 +78,7 @@ public class DeliveryManager : MonoBehaviour {
     public void FailedRecipe(){
         OnRecipeFailed?.Invoke(this, EventArgs.Empty);
         waitingRecipe -= 1;
+        failedRecipesAmount++;
         print("failed");
     }
     public void IncorrectRecipe(){

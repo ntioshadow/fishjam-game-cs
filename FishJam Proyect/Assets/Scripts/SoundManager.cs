@@ -27,10 +27,16 @@ public class SoundManager : MonoBehaviour {
     private void Start() {
         DeliveryManager.Instance.OnRecipeSuccess += DeliveryManager_OnRecipeSuccess;
         DeliveryManager.Instance.OnRecipeFailed += DeliveryManager_OnRecipeFailed;
+        DeliveryManager.Instance.OnRecipeSpawned += DeliveryManager_OnRecipeSpawned;
         CuttingCounter.OnAnyCut += CuttingCounter_OnAnyCut;
         Player.Instance.OnPickedSomething += Player_OnPickedSomething;
         BaseCounter.OnAnyObjectPlacedHere += BaseCounter_OnAnyObjectPlacedHere;
         TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
+    }
+
+    private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
+    {
+        throw new System.NotImplementedException();
     }
 
     private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e) {
@@ -71,7 +77,7 @@ public class SoundManager : MonoBehaviour {
     }
 
     public void PlayFootstepsSound(Vector3 position, float volume) {
-        PlaySound(audioClipRefsSO.footstep, position, volume);
+        // PlaySound(audioClipRefsSO.footstep, position, volume);
     }
 
     public void PlayCountdownSound() {
