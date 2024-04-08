@@ -29,8 +29,8 @@ public class StoveCounter : BaseCounter, IHasProgress {
     private State state;
     private float fryingTimer;
     private FryingRecipeSO fryingRecipeSO;
-    private float burningTimer;
-    private BurningRecipeSO burningRecipeSO;
+    // private float burningTimer;
+    // private BurningRecipeSO burningRecipeSO;
 
 
     private void Start() {
@@ -56,8 +56,8 @@ public class StoveCounter : BaseCounter, IHasProgress {
                         KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
 
                         state = State.Fried;
-                        burningTimer = 0f;
-                        burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                        // burningTimer = 0f;
+                        // burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
 
                         OnStateChanged?.Invoke(this, new OnStateChangedEventArgs {
                             state = state
