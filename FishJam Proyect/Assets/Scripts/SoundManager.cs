@@ -15,7 +15,7 @@ public class SoundManager : MonoBehaviour {
     [SerializeField] private AudioClipRefsSO audioClipRefsSO;
 
 
-    private float volume = 1f;
+    private float volume = 50f;
 
 
     private void Awake() {
@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour {
 
     private void DeliveryManager_OnRecipeSpawned(object sender, System.EventArgs e)
     {
-        throw new System.NotImplementedException();
+        PlaySound(audioClipRefsSO.newCustomer, Camera.main.transform.position);;
     }
 
     private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e) {
@@ -59,14 +59,13 @@ public class SoundManager : MonoBehaviour {
     }
 
     private void DeliveryManager_OnRecipeFailed(object sender, System.EventArgs e) {
-        // DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        // PlaySound(audioClipRefsSO.deliveryFail, deliveryCounter.transform.position);
+        PlaySound(audioClipRefsSO.deliveryFail, Camera.main.transform.position);
     }
 
     private void DeliveryManager_OnRecipeSuccess(object sender, System.EventArgs e) {
-        //DeliveryCounter deliveryCounter = DeliveryCounter.Instance;
-        //PlaySound(audioClipRefsSO.deliverySuccess, deliveryCounter.transform.position);
+        PlaySound(audioClipRefsSO.deliverySuccess, Camera.main.transform.position);
     }
+    
 
     private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volume = 1f) {
         PlaySound(audioClipArray[Random.Range(0, audioClipArray.Length)], position, volume);
@@ -77,7 +76,7 @@ public class SoundManager : MonoBehaviour {
     }
 
     public void PlayFootstepsSound(Vector3 position, float volume) {
-        // PlaySound(audioClipRefsSO.footstep, position, volume);
+        PlaySound(audioClipRefsSO.footstep, position, volume);
     }
 
     public void PlayCountdownSound() {

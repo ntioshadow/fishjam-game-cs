@@ -8,6 +8,7 @@ public class DeliveryCounter : BaseCounter, IHasProgress {
 
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;   
     public event EventHandler<OnRecipeAddedEventArgs> OnRecipeAdded;
+    public event EventHandler OnRecipeCompleted;
     public class OnRecipeAddedEventArgs : EventArgs {
         public RecipeSO currentRecipe;
     }
