@@ -45,6 +45,7 @@ public class DeliveryManager : MonoBehaviour {
                         OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
                         waitingRecipe += 1;
                         break;
+
                     }
                 }
             }

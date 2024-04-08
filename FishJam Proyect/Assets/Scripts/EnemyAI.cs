@@ -23,7 +23,6 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        print(Vector3.Distance(transform.position, patrolPoints[currentPatrolPoint].position));
         
         if (!player)
         {
@@ -54,7 +53,7 @@ public class EnemyAI : MonoBehaviour
             }
             else
             {
-                print("Patrolling");
+                
                 Patrol(); // Move to the next patrol point
             }
         }

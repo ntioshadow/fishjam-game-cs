@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Salmon
   m_EditorClassIdentifier: 
   prefab: {fileID: 5707758345474902525, guid: 728f1ed086b295042bae151a9fe0f9bb, type: 3}
-  sprite: {fileID: 21300000, guid: 0272a92e538d5a44eb803a95a5791465, type: 3}
+  sprite: {fileID: 21300000, guid: 04202b8cc9ba2b649a7cb7f53dbb9516, type: 3}
   objectName: Salmon
