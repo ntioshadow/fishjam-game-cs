@@ -28,7 +28,7 @@ public class CameraControl : MonoBehaviour
         float currentFOV = cameraControl.fieldOfView;
         float targetFOV;
 
-        if (target.position.x > leftThreshold) // Player is right of threshold
+        if (target.position.x < leftThreshold) // Player is right of threshold
         {
             targetPosition = target.position + _offset;
             targetFOV = zoomInFOV;

@@ -16,10 +16,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ab15eb0668f576d42bbf2621041be1e5, type: 3}
   - {fileID: 8300000, guid: 02039b7f1dc2f084b9d3018c5f273448, type: 3}
   deliveryFail:
-  - {fileID: 8300000, guid: a2ccdfcb0c703d04dbd0366e3d9a839c, type: 3}
+  - {fileID: 8300000, guid: 49aeabc20d4d1c147a7dc1939f6efe80, type: 3}
   deliverySuccess:
   - {fileID: 8300000, guid: 6e2d685bbf3c7e14c9522bbd790a651a, type: 3}
-  newCustomer: []
+  newCustomer:
+  - {fileID: 8300000, guid: d6ce5657eb8056a43b920dff81f129b1, type: 3}
+  - {fileID: 8300000, guid: e0bf77979d3067a4a9e6961d479fa540, type: 3}
+  - {fileID: 8300000, guid: 8e12113c1c150b7479b1731f4cfaf990, type: 3}
+  - {fileID: 8300000, guid: fb7616ad556f65d4b806855c42f992b6, type: 3}
   footstep:
   - {fileID: 8300000, guid: 1285b70654ad6764f91a2f6e27123671, type: 3}
   - {fileID: 8300000, guid: 437f1b5ce11ca9b4c847c79fcf17fcdf, type: 3}
@@ -37,7 +41,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 04971342c78de844d84b76ec2ad6e23a, type: 3}
   objectPickup:
   - {fileID: 8300000, guid: 948699238b49fe146a8d58de8ea11a4e, type: 3}
-  stoveSizzle: {fileID: 0}
+  stoveSizzle: {fileID: 8300000, guid: a2e02d4916242b341985b7f1d3561e8d, type: 3}
   trash:
   - {fileID: 8300000, guid: 1cc00642f611c5a4da98fab0f8207495, type: 3}
-  warning: []
+  warning:
+  - {fileID: 8300000, guid: 5dabfc3f0c884394fba3f0576fa41295, type: 3}
