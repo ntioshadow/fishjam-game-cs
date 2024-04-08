@@ -586,6 +586,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3cfbf0a2d82fd5f4686b2be0dcdf2931, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92452dce39c5dae4186341261c5c3b02, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 3cfbf0a2d82fd5f4686b2be0dcdf2931, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 874e733ecffcba140a96b9a2f64f6707, type: 2}
     - target: {fileID: 919132149155446097, guid: 3cfbf0a2d82fd5f4686b2be0dcdf2931, type: 3}
       propertyPath: m_Name
       value: knife
@@ -660,6 +668,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 63c17dbd6bdf7d94cb27ebdf11fc71c3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f46e2250a69f007498d36e95eae15374, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 63c17dbd6bdf7d94cb27ebdf11fc71c3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3156fd030322b34aa964b68127287ef, type: 2}
     - target: {fileID: 919132149155446097, guid: 63c17dbd6bdf7d94cb27ebdf11fc71c3, type: 3}
       propertyPath: m_Name
       value: counter basic
@@ -726,6 +742,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e37ae417cb17b904d8cc40f23cff01d4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3bfee3a30163e5741937ed6b104072ca, type: 2}
     - target: {fileID: 919132149155446097, guid: e37ae417cb17b904d8cc40f23cff01d4, type: 3}
       propertyPath: m_Name
       value: cuttingboard
